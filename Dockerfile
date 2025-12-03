@@ -11,7 +11,7 @@ COPY . .
 #     npm_config_target_arch=${TARGETARCH} yarn install --frozen-lockfile --network-timeout 600000
 
 # Note the required 's/' prefix and a unique ID for the client's yarn cache
-RUN --mount=type=cache,id=s/excalidraw-client-yarn-cache,target=/usr/local/share/.cache/yarn npm_config_target_arch=${TARGETARCH} yarn install --frozen-lockfile
+RUN --mount=type=cache,id=s/63b12753-af1d-4ca3-ba04-9f3d7b3029aa-client-yarn-cache,target=/usr/local/share/.cache/yarn npm_config_target_arch=${TARGETARCH} yarn install --frozen-lockfile
 
 ARG NODE_ENV=production
 
