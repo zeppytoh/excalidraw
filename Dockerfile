@@ -6,8 +6,9 @@ COPY . .
 
 # do not ignore optional dependencies:
 # Error: Cannot find module @rollup/rollup-linux-x64-gnu
-RUN --mount=type=cache,target=/root/.cache/yarn \
-    npm_config_target_arch=${TARGETARCH} yarn --network-timeout 600000
+# Use a unique, descriptive ID for the cache
+RUN --mount=type=cache,id=excalidraw-yarn-cache,target=/root/.cache/yarn\ 
+    npm_config_target_arch=${TARGETARCH} yarn install --frozen-lockfile --network-timeout 600000
 
 ARG NODE_ENV=production
 
